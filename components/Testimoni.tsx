@@ -2,6 +2,7 @@
 
 import { generateTestimonialImageURL } from '@/utils'
 import { NextPage } from 'next'
+import Image from 'next/image'
 
 interface Props {}
 
@@ -14,7 +15,7 @@ const Testimoni: NextPage<Props> = ({}) => {
         const imageURL = generateTestimonialImageURL(i)
         testimonialImages.push(
             <div className='carousel-item w-[30%] h-auto max-md:w-[90%]' key={`testimonial-${i}`}>
-                <img src={imageURL} alt={`Testi ${i}`}  className=''/>
+                <Image width={400} height={600} src={imageURL} alt={`Testi ${i}`}  className='w-full h-auto'/>
             </div>
         )
     }

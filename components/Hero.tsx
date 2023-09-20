@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import Image from 'next/image'
 
 interface Props {}
 
@@ -24,7 +25,7 @@ const Hero: NextPage<Props> = ({}) => {
                     </div>
                 </div>
                 <div className='flex items-center justify-center'>
-                    <img src='/img/hero-1.png' alt='' className='h-full max-md:w-[50%] max-md:h-auto' />
+                    <Image width={400} height={600} src='/img/hero-1.png' alt='' className='h-full max-md:w-[50%] max-md:h-auto' />
                 </div>
             </div>
         </div>
