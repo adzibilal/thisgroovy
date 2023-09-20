@@ -12,7 +12,7 @@ const config: Config = {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 'gradient-conic':
                     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-                'pattern': "url('/img/bg-pattern.png')",
+                pattern: "url('/img/bg-pattern.png')",
                 'pattern-opacity': "url('/img/bg-pattern-opacity.png')"
             }
         },
@@ -294,6 +294,6 @@ const config: Config = {
             quick: ['Quicksand', 'sans-serif']
         }
     },
-    plugins: []
+    plugins: [require('daisyui')]
 }
 export default config
