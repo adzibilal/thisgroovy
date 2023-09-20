@@ -1,3 +1,5 @@
+'use client'
+import { ctaWhatsapp } from '@/utils'
 import { NextPage } from 'next'
 
 interface Props {}
@@ -9,7 +11,7 @@ const Cta: NextPage<Props> = ({}) => {
                 <h1 className='hero-title font-quick font-extrabold text-5xl stroke-pink-gro text-center'>
                     Tunggu apa lagi ? yuk gabung sekarang!
                 </h1>
-                <div className='btn-nav w-max !px-10 !py-4 !outline-yellow-gro'>
+                <div className='btn-nav w-max !px-10 !py-4 !outline-yellow-gro' onClick={() => ctaWhatsapp()}>
                     Daftar Sekarang
                 </div>
             </div>

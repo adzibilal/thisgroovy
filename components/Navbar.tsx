@@ -1,3 +1,5 @@
+'use client'
+import { ctaWhatsapp } from '@/utils'
 import { NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -14,24 +16,20 @@ const Navbar: NextPage<Props> = ({}) => {
 
                 <div className='flex items-center gap-10'>
                     <div className='nav-links flex gap-4'>
+                        {/* <div className='nav-link'>
+                            <Link href='/'>Tentang</Link>
+                        </div> */}
                         <div className='nav-link'>
-                            <Link href='/'>
-                                Tentang
-                            </Link>
+                            <Link href='#testimoni'>Testimoni</Link>
                         </div>
                         <div className='nav-link'>
-                            <Link href='/'>
-                                Testimoni
-                            </Link>
-                        </div>
-                        <div className='nav-link'>
-                            <Link href='/'>
-                                FAQ
-                            </Link>
+                            <Link href='#faq'>FAQ</Link>
                         </div>
                     </div>
 
-                    <div className="btn-nav max-md:hidden">
+                    <div
+                        className='btn-nav max-md:hidden'
+                        onClick={() => ctaWhatsapp()}>
                         Daftar Sekarang
                     </div>
                 </div>

@@ -1,3 +1,5 @@
+'use client'
+import { ctaWhatsapp } from '@/utils'
 import { NextPage } from 'next'
 import Image from 'next/image'
 
@@ -20,12 +22,20 @@ const Hero: NextPage<Props> = ({}) => {
                         lebih dari 50 kloter yang sukses, dan sekarang giliran
                         Anda untuk merasakan manfaatnya.
                     </p>
-                    <div className='btn-nav w-max !px-10 !py-4 !outline-yellow-gro'>
+                    <div
+                        className='btn-nav w-max !px-10 !py-4 !outline-yellow-gro'
+                        onClick={() => ctaWhatsapp()}>
                         Daftar Sekarang
                     </div>
                 </div>
                 <div className='flex items-center justify-center'>
-                    <Image width={400} height={600} src='/img/hero-1.png' alt='' className='h-full max-md:w-[50%] max-md:h-auto' />
+                    <Image
+                        width={400}
+                        height={600}
+                        src='/img/hero-1.png'
+                        alt=''
+                        className='h-full max-md:w-[50%] max-md:h-auto'
+                    />
                 </div>
             </div>
         </div>

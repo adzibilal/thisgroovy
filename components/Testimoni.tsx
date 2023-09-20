@@ -21,7 +21,7 @@ const Testimoni: NextPage<Props> = ({}) => {
     }
 
     return (
-        <div className='max-container pt-44 max-md:py-20'>
+        <div className='max-container pt-44 max-md:py-20' id='testimoni'>
             <div className='!text-center mb-10'>
                 <h1 className='hero-title font-quick font-extrabold text-3xl stroke-pink-gro'>
                     Testimoni

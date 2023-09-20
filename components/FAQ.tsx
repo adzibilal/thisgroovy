@@ -4,7 +4,7 @@ interface Props {}
 
 const FAQ: NextPage<Props> = ({}) => {
     return (
-        <div className='max-container grid grid-cols-1 gap-10 items-center py-44 max-md:grid-cols-1 max-md:py-20'>
+        <div className='max-container grid grid-cols-1 gap-10 items-center py-44 max-md:grid-cols-1 max-md:py-20' id='faq'>
             <div className='!text-center'>
                 <h1 className='hero-title font-quick font-extrabold text-3xl stroke-pink-gro'>
                     Frequently Asked Question

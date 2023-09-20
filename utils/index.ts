@@ -15,3 +15,18 @@ export function generateTestimonialImageURL(imageNumber: number): string {
 
     return imageURL
 }
+
+export function ctaWhatsapp() {
+    // Membuat pesan teks
+    const pesan: string = `Halo kak,
+
+Aku mau ikutan nabung di thisgroovy.`
+
+    // Membuat tautan WhatsApp dengan nomor telepon dan pesan
+    const tautanWhatsApp: string = `https://api.whatsapp.com/send?phone=6285891069847&text=${encodeURIComponent(
+        pesan
+    )}`
+
+    // Buka tautan WhatsApp di jendela baru
+    window.open(tautanWhatsApp, '_blank')
+}
