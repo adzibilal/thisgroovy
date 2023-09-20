@@ -11,11 +11,11 @@ const Hero: NextPage<Props> = ({}) => {
             <div className='hero-container'>
                 <div className=''>
                     <h1 className='hero-title font-quick font-extrabold text-5xl stroke-pink-gro'>
-                        Bergabunglah dengan Arisan thisgroovy dan Raih Manfaat
+                        Bergabunglah dengan Nabung thisgroovy dan Raih Manfaat
                         Besar!
                     </h1>
                     <p className='my-5'>
-                        Selamat datang di Arisan thisgroovy, tempat kebahagiaan
+                        Selamat datang di Nabung thisgroovy, tempat kebahagiaan
                         dan manfaat bertemu! Sejak tahun 2020, kami telah
                         menjadi pilihan aman dan terpercaya bagi ratusan anggota
                         yang telah bergabung. Kami adalah keluarga besar dengan
