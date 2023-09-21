@@ -125,6 +125,15 @@ const Add: NextPage = () => {
         }))
     }
 
+    const deleteSlotItem = (index: number) => {
+        const updatedSlot = [...formData.slot]
+        updatedSlot.splice(index, 1)
+        setFormData(prevState => ({
+            ...prevState,
+            slot: updatedSlot
+        }))
+    }
+
     return (
         <AdminLayout>
             {loading && <LoadingOverlay />}
@@ -223,6 +232,12 @@ const Add: NextPage = () => {
                                     className='input input-bordered inp-grv w-full'
                                 />
                             </div>
+                            <button
+                                onClick={() => deleteSlotItem(index)}
+                                className='btn btn-error text-white'
+                                type='button'>
+                                Hapus Slot
+                            </button>
                         </div>
                     ))}
                 </div>

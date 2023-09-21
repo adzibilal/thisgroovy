@@ -31,7 +31,7 @@ const Page: NextPage<Props> = ({}) => {
             console.error(searchQuery)
             if (!searchQuery) {
                 const response = await fetch(
-                    `/api/kloters?page=${page}&perPage=1`
+                    `/api/kloters?page=${page}&perPage=9`
                 )
                 if (response.ok) {
                     const data = await response.json()
@@ -46,7 +46,7 @@ const Page: NextPage<Props> = ({}) => {
                 }
             } else {
                 const response = await fetch(
-                    `/api/kloters?page=${page}&perPage=1&search=${searchQuery}`
+                    `/api/kloters?page=${page}&perPage=9&search=${searchQuery}`
                 )
                 if (response.ok) {
                     const data = await response.json()

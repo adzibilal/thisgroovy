@@ -143,6 +143,40 @@ const EditKloter: NextPage<Props> = () => {
             ]
         })
     }
+    const deleteSlotItem = (index: number) => {
+        const updatedSlot = [...formData.slot]
+        updatedSlot.splice(index, 1)
+        setFormData(prevState => ({
+            ...prevState,
+            slot: updatedSlot
+        }))
+    }
+    const handleDeleteKloter = async () => {
+        if (window.confirm('Are you sure you want to delete this Kloter?')) {
+            try {
+                setLoading(true)
+
+                const response = await fetch(`/api/kloters`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id: kloterId }) // Assuming kloterId is defined in your component
+                })
+
+                if (response.ok) {
+                    console.log('Kloter deleted successfully')
+                    router.push('/admin/kloters')
+                } else {
+                    console.error('Failed to delete Kloter')
+                }
+            } catch (error) {
+                console.error('Error deleting Kloter:', error)
+            } finally {
+                setLoading(false)
+            }
+        }
+    }
 
     return (
         <AdminLayout>
@@ -203,9 +237,7 @@ const EditKloter: NextPage<Props> = () => {
                                     <input
                                         type='date'
                                         name={`tanggal`}
-                                        value={
-                                            parseInputDate(item.tanggal)
-                                        }
+                                        value={parseInputDate(item.tanggal)}
                                         onChange={e =>
                                             handleSlotInputChange(e, index)
                                         }
@@ -246,6 +278,12 @@ const EditKloter: NextPage<Props> = () => {
                                         className='input input-bordered inp-grv w-full'
                                     />
                                 </div>
+                                <button
+                                    onClick={() => deleteSlotItem(index)}
+                                    className='btn btn-error text-white'
+                                    type='button'>
+                                    Hapus Slot
+                                </button>
                             </div>
                         ))}
                     </div>
@@ -292,6 +330,11 @@ const EditKloter: NextPage<Props> = () => {
                             onClick={handleSubmit}
                             className='btn btn-primary'>
                             Simpan
+                        </button>
+                        <button
+                            onClick={handleDeleteKloter}
+                            className='btn btn-error ml-2 text-white'>
+                            Hapus Kloter
                         </button>
                     </div>
                 </div>
