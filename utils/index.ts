@@ -1,3 +1,5 @@
+import { format } from 'date-fns'
+
 export function generateTestimonialImageURL(imageNumber: number): string {
     // Tentukan rentang angka gambar (misalnya, dari 1 hingga 14)
     const minImageNumber = 1
@@ -29,4 +31,16 @@ Aku mau ikutan nabung di thisgroovy.`
 
     // Buka tautan WhatsApp di jendela baru
     window.open(tautanWhatsApp, '_blank')
+}
+
+// Fungsi untuk memformat tanggal ke dalam format tertentu
+export function formatDate(date: Date): string {
+    const dateObject = new Date(date)
+    return format(dateObject, 'dd MMMM yyyy')
+}
+
+export function parseInputDate(date: Date) {
+    const dateObject = new Date(date)
+    const val = dateObject.toISOString().split('T')[0]
+    return val
 }

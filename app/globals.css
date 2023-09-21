@@ -110,3 +110,51 @@ body {
 .collapse-faq .collapse-content {
   @apply text-black;
 }
+
+.card-kloter {
+  @apply border-4 border-sky-blue rounded-md p-3;
+}
+
+.card-title {
+  @apply font-quick font-extrabold stroke-pink-gro text-white text-2xl;
+  text-shadow:
+    #e2797d 2px 0px 0px,
+    #e2797d 1.75517px 0.958851px 0px,
+    #e2797d 1.0806px 1.68294px 0px,
+    #e2797d 0.141474px 1.99499px 0px,
+    #e2797d -0.832294px 1.81859px 0px,
+    #e2797d -1.60229px 1.19694px 0px,
+    #e2797d -1.97998px 0.28224px 0px,
+    #e2797d -1.87291px -0.701566px 0px,
+    #e2797d -1.30729px -1.5136px 0px,
+    #e2797d -0.421592px -1.95506px 0px,
+    #e2797d 0.567324px -1.91785px 0px,
+    #e2797d 1.41734px -1.41108px 0px,
+    #e2797d 1.92034px -0.558831px 0px;
+}
+
+.btn-card {
+  @apply font-quick font-bold text-white bg-pink-gro outline outline-white rounded-full px-3 cursor-pointer py-2 transition-all hover:scale-[104%] text-center;
+}
+
+.inp-grv{
+  @apply bg-yellow-gro/20 border border-pink-gro
+}
+
+.label-grv{
+  @apply font-quick font-extrabold stroke-pink-gro text-white text-lg;
+  text-shadow:
+    #e2797d 2px 0px 0px,
+    #e2797d 1.75517px 0.958851px 0px,
+    #e2797d 1.0806px 1.68294px 0px,
+    #e2797d 0.141474px 1.99499px 0px,
+    #e2797d -0.832294px 1.81859px 0px,
+    #e2797d -1.60229px 1.19694px 0px,
+    #e2797d -1.97998px 0.28224px 0px,
+    #e2797d -1.87291px -0.701566px 0px,
+    #e2797d -1.30729px -1.5136px 0px,
+    #e2797d -0.421592px -1.95506px 0px,
+    #e2797d 0.567324px -1.91785px 0px,
+    #e2797d 1.41734px -1.41108px 0px,
+    #e2797d 1.92034px -0.558831px 0px;
+}
