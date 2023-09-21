@@ -14,8 +14,8 @@ const KloterCard: NextPage<Props> = ({ item }) => {
             <div className='text-black '>{item.subtitle}</div>
             <div className='text-sm mb-3'>passcode: {item.passcode}</div>
             <ol>
-                {item.slot?.map(item => (
-                    <li className='bg-yellow-gro/20 px-3 py-2 rounded-md mb-2'>
+                {item.slot?.map((item,index) => (
+                    <li className='bg-yellow-gro/20 px-3 py-2 rounded-md mb-2' key={index}>
                         <div className='font-semibold text-sm text-black/20'>
                             {formatDate(item.tanggal)}
                         </div>
@@ -31,9 +31,9 @@ const KloterCard: NextPage<Props> = ({ item }) => {
             </ol>
             <div className='text-sm mb-3'>{item.notes}</div>
 
-            <div className='btn-card'>
-                <Link href={`/admin/kloters/edit?kloterId=${item._id}`}>Edit Kloter</Link>
-            </div>
+            <Link href={`/admin/kloters/edit?kloterId=${item._id}`}>
+                <div className='btn-card'>Edit Kloter</div>
+            </Link>
         </div>
     )
 }

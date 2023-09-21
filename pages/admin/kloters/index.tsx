@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react'
 import { IKloter } from '@/models/Kloter'
 import KloterCard from '@/components/admin/KloterCard'
 import Link from 'next/link'
+import Pagination from '@/components/admin/Pagination'
+import LoadingOverlay from '@/components/admin/LoadingOverlay'
 
 interface Props {}
 interface IPagination {
@@ -24,11 +26,12 @@ const Page: NextPage<Props> = ({}) => {
     })
     const [searchValue, setSearchValue] = useState('')
     const [loading, setLoading] = useState(true)
-    const fetchPendaftaran = async (page: number, searchQuery?: string) => {
+    const fetchKloter = async (page: number, searchQuery?: string) => {
         try {
+            console.error(searchQuery)
             if (!searchQuery) {
                 const response = await fetch(
-                    `/api/kloters?page=${page}&perPage=9`
+                    `/api/kloters?page=${page}&perPage=1`
                 )
                 if (response.ok) {
                     const data = await response.json()
@@ -43,7 +46,7 @@ const Page: NextPage<Props> = ({}) => {
                 }
             } else {
                 const response = await fetch(
-                    `/api/kloters?page=${page}&perPage=9&search=${searchQuery}`
+                    `/api/kloters?page=${page}&perPage=1&search=${searchQuery}`
                 )
                 if (response.ok) {
                     const data = await response.json()
@@ -63,14 +66,21 @@ const Page: NextPage<Props> = ({}) => {
             setLoading(false)
         }
     }
+    const handleSearchChange = (e: any) => {
+        const { name, value } = e.target
+        setSearchValue(value)
+    }
+    const handlePageChange = (page: number) => {
+        fetchKloter(page, searchValue)
+    }
 
     useEffect(() => {
-        fetchPendaftaran(1)
+        fetchKloter(1)
     }, [])
     return (
         <AdminLayout>
             <div className='max-container py-14'>
-                <div className='flex justify-between items-center mb-10 gap-20'>
+                <div className='flex justify-between items-center mb-10 gap-20 max-md:flex-col max-md:gap-5 max-md:items-start'>
                     <h1 className='hero-title font-quick font-extrabold text-5xl '>
                         Kloters
                     </h1>
@@ -79,9 +89,12 @@ const Page: NextPage<Props> = ({}) => {
                             <input
                                 type='text'
                                 placeholder='Search…'
+                                onChange={handleSearchChange}
                                 className='input bg-yellow-gro/20 w-full'
                             />
-                            <button className='btn btn-square bg-pink-gro'>
+                            <button
+                                className='btn btn-square bg-pink-gro'
+                                onClick={() => fetchKloter(1, searchValue)}>
                                 <svg
                                     xmlns='http://www.w3.org/2000/svg'
                                     className='h-6 w-6'
@@ -98,20 +111,26 @@ const Page: NextPage<Props> = ({}) => {
                             </button>
                         </div>
                     </div>
-                    <div className="btn-card w-max min-w-fit">
-                        <Link href='/admin/kloters/add'>
-                        Buat Kloter
-                        </Link>
-                    </div>
+                    <Link href='/admin/kloters/add'>
+                        <div className='btn-card w-max min-w-fit'>
+                            Buat Kloter
+                        </div>
+                    </Link>
                 </div>
 
-                {loading && <div className='text-center'>Loading ...</div>}
+                {loading && <LoadingOverlay/>}
 
                 <div className='grid grid-cols-3 gap-3 max-md:grid-cols-1'>
                     {kloters.map(item => (
-                       <KloterCard item={item} key={item._id}/>
+                        <KloterCard item={item} key={item._id} />
                     ))}
                 </div>
+
+                <Pagination
+                    currentPage={pagination.currentPage}
+                    totalPages={pagination.totalPages}
+                    onPageChange={handlePageChange}
+                />
             </div>
         </AdminLayout>
     )
